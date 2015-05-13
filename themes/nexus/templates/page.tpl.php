@@ -68,18 +68,21 @@
   <header id="masthead" class="site-header container" role="banner">
     <div class="row">
       <div id="logo" class="site-branding col-sm-6">
-        <?php if ($logo): ?><div id="site-logo"><a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
+        <?php
+        $myurl = '/user';
+        $front_page;
+        if ($logo): ?><div id="site-logo"><a href="<?php print $myurl; ?>" title="<?php print t('Home'); ?>">
           <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
         </a></div><?php endif; ?>
         <h1 id="site-title">
-          <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>"><?php print $site_name; ?></a>
+          <a href="<?php print $myurl; ?>" title="<?php print t('Home'); ?>"><?php print $site_name; ?></a>
         </h1>
       </div>
       <div class="col-sm-6 mainmenu">
         <div class="mobilenavi"></div>
         <nav id="navigation" role="navigation">
           <div id="main-menu">
-            <?php 
+            <?php
               if (module_exists('i18n_menu')) {
                 $main_menu_tree = i18n_menu_translated_tree(variable_get('menu_main_links_source', 'main-menu'));
               } else {
@@ -96,7 +99,7 @@
 
   <?php if ($is_front): ?>
   <?php if (theme_get_setting('slideshow_display','nexus')): ?>
-  <?php 
+  <?php
     $slide1_head = check_plain(theme_get_setting('slide1_head','nexus'));   $slide1_desc = check_markup(theme_get_setting('slide1_desc','nexus'), 'full_html'); $slide1_url = check_plain(theme_get_setting('slide1_url','nexus'));
     $slide2_head = check_plain(theme_get_setting('slide2_head','nexus'));   $slide2_desc = check_markup(theme_get_setting('slide2_desc','nexus'), 'full_html'); $slide2_url = check_plain(theme_get_setting('slide2_url','nexus'));
     $slide3_head = check_plain(theme_get_setting('slide3_head','nexus'));   $slide3_desc = check_markup(theme_get_setting('slide3_desc','nexus'), 'full_html'); $slide3_url = check_plain(theme_get_setting('slide3_url','nexus'));
@@ -168,7 +171,7 @@
   <?php endif; ?>
 
     <div id="main-content">
-    <div class="container"> 
+    <div class="container">
       <div class="row">
         <?php if($page['sidebar_first']) { $primary_col = 8; } else { $primary_col = 12; } ?>
         <div id="primary" class="content-area col-sm-<?php print $primary_col; ?>">
@@ -190,7 +193,7 @@
         <?php if ($page['sidebar_first']): ?>
           <aside id="sidebar" class="col-sm-4" role="complementary">
            <?php print render($page['sidebar_first']); ?>
-          </aside> 
+          </aside>
         <?php endif; ?>
       </div>
     </div>
